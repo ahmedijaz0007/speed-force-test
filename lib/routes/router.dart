@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:speedforcetest/screens/sign_up_screen.dart';
 
 import '../screens/login_screen.dart';
 
@@ -7,8 +8,8 @@ class AppRouter {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) =>   LoginScreen());
-      // case '/feature1':
-      //   return MaterialPageRoute(builder: (_) => const Feature1Screen());
+       case '/SignUp':
+         return MaterialPageRoute(builder: (_) =>  SignUpScreen());
       // default:
       //   return MaterialPageRoute(builder: (_) => const NotFoundScreen());
     }

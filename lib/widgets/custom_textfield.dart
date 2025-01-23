@@ -26,7 +26,7 @@ class CustomTextField extends StatelessWidget{
         filled: true,
         fillColor: AppColors.textFieldBackgroundColor,
         border: InputBorder.none,
-        hintText: 'Password',
+        hintText: hintText,
         prefixIcon:  prefixIcon,
         suffixIcon: suffixWidget
       ),

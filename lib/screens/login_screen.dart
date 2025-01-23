@@ -45,6 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
     } catch (e) {
       // Show error dialog for any API or network errors
       if(mounted) {
+        Navigator.pushNamed(context, "/SignUp");
         showErrorDialog(context, e.toString());
       }
     } finally {
@@ -65,6 +66,12 @@ class _LoginScreenState extends State<LoginScreen> {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
+              Image.asset("assets/images/png/logo.png"),
+              const SizedBox(height: 16,),
+              const Text(
+                "Welcome Back",style: TextStyle(fontSize: 32,fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: 16,),
               CustomTextField(
                 controller: _emailController,
                   prefixIcon: const Icon(Icons.email_rounded), hintText: 'Email',
@@ -86,13 +93,22 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: Theme.of(context).primaryColorDark,
                     ),
                     onPressed: () {
-                      // Update the state i.e. toogle the state of passwordVisible variable
+                      // Update the state i.e. toggle the state of passwordVisible variable
                       setState(() {
                         _isPasswordVisible = !_isPasswordVisible;
                       });
                     },
                   ),
 
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Checkbox(value: false, side:
+                  const BorderSide(width: 2, color: AppColors.primaryColor),onChanged: (val){}),
+                  const Text("Remember Me"),
+                ],
               ),
               const SizedBox(height: 32),
               _isLoading
@@ -101,6 +117,31 @@ class _LoginScreenState extends State<LoginScreen> {
                 onPressed: _login,
                 text: "Login",
               ),
+              const SizedBox(height: 32),
+              const Text("Forgot the Password?",style: TextStyle(color: AppColors.primaryColor),),
+              const SizedBox(height: 32),
+              const Text("or continue with"),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children:
+                [
+                  IconButton(onPressed: (){}, icon:const Image(image: AssetImage("assets/images/png/fb.png"))),
+                  const SizedBox(width: 10,),
+                  IconButton(onPressed: (){}, icon: const Image(image: AssetImage("assets/images/png/google.png")))
+                ],
+              ),
+              const SizedBox(height: 32),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("Don't have a Account?"),
+                  const SizedBox(width: 5,),
+                  GestureDetector(
+                    child: const Text("Sign up",style: TextStyle(color: AppColors.primaryColor),),
+                  )
+                ],
+              )
             ],
           ),
         ),
