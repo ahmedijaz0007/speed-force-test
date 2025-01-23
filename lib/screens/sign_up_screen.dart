@@ -7,6 +7,7 @@ import 'package:speedforcetest/widgets/custom_button.dart';
 import 'package:speedforcetest/widgets/custom_textfield.dart';
 
 import '../constants/app_constants.dart';
+import '../widgets/custom_tab_bar.dart';
 
 class SignUpScreen extends StatefulWidget {
   final List<String> list = ['Male','Female'];
@@ -37,6 +38,8 @@ class _SignUpScreenState extends State<SignUpScreen>{
             padding: const EdgeInsets.all(12.0),
             child: Column(
               children: [
+                TabButtons(firstTabText: 'Consumer', secondTabText: 'Service Provider', onTabSelected: (int value) {  },),
+                SizedBox(height: 32,),
                 CustomTextField(controller: controller, hintText: "First Name"),
                 const SizedBox(height: 12,),
                 CustomTextField(controller: controller, hintText: "Last Name"),
@@ -48,7 +51,6 @@ class _SignUpScreenState extends State<SignUpScreen>{
                   child: SizedBox(
                     width: double.infinity,
                     child: DropdownButton(
-
                       value: dropdownValue,
                       icon: const Icon(Icons.arrow_drop_down_circle_rounded),
                       elevation: 16,
@@ -111,10 +113,23 @@ class _SignUpScreenState extends State<SignUpScreen>{
                     ),
                   ),
                 ),
-                SizedBox(height: 16,),
+                const SizedBox(height: 16,),
                 CustomButton.solid(text: "Sign Up", onPressed: (){}),
-                const Text("or continue with"),
+                const SizedBox(height: 16,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text("Already have an Account?"),
+                    const SizedBox(width: 5,),
+                    GestureDetector(
+                      child:  const Text("Log In",style: TextStyle(color: AppColors.secondaryColor),),
+                    )
+                  ],
+                ),
                 const SizedBox(height: 16),
+                const Text("or continue with",style: TextStyle(color: Color(0xFF616161),fontSize: 18,fontWeight: FontWeight.w600),),
+                const SizedBox(height: 16),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children:
@@ -124,20 +139,7 @@ class _SignUpScreenState extends State<SignUpScreen>{
                     IconButton(onPressed: (){}, icon: const Image(image: AssetImage("assets/images/png/google.png")))
                   ],
                 ),
-                const SizedBox(height: 32),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text("Already have an Account?"),
-                    const SizedBox(width: 5,),
-                    GestureDetector(
-                      child:  const Text("Log In",style: TextStyle(color: AppColors.primaryColor),),
-                    )
-                  ],
-                )
-          
-          
-          
+                SizedBox(height: 18,)
               ],
             ),
           ),

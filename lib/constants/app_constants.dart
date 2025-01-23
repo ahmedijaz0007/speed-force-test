@@ -9,5 +9,5 @@ abstract class  AppColors {
   static const Color textFieldBackgroundColor = Color(0x00FAFAFA);
   static const Color primaryColor =  Color(0xFFEC3F2E);
   static const Color accentColor = Color(0xffffffff);
-
+  static const Color secondaryColor = Color(0xff0A84FF);
 }
