@@ -20,7 +20,6 @@ class CustomTextField extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
    return TextFormField(
-     autovalidateMode: AutovalidateMode.always,
      validator: validator,
 
      style: const TextStyle(color: Color(0xff9E9E9E),fontWeight: FontWeight.w400),

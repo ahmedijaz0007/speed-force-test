@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:speedforcetest/cache/cache_manager.dart';
 import 'package:speedforcetest/constants/app_constants.dart';
 import 'package:speedforcetest/screens/profile_screen.dart';
 import 'package:speedforcetest/widgets/card_widget.dart';
 import 'package:speedforcetest/widgets/custom_button.dart';
 
+import '../models/login_model.dart';
+
 class DashBoardScreen extends StatefulWidget {
-  const DashBoardScreen({super.key});
+  final Login loginInfo;
+
+  const DashBoardScreen({super.key, required this.loginInfo});
+
+
+
+
 
   @override
   State<StatefulWidget> createState() => _DashBoardScreenState();
@@ -13,17 +22,22 @@ class DashBoardScreen extends StatefulWidget {
 
 class _DashBoardScreenState extends State<DashBoardScreen> {
   int _currentIndex = 0; // Tracks the selected tab index
+  
+
+
+
 
   // List of screens for navigation
-  final List<Widget> _screens = [
-    HomeScreen(),
-    Center(child: Text('Jobs Screen', style: TextStyle(fontSize: 24))),
-    Center(child: Text('Earnings Screen', style: TextStyle(fontSize: 24))),
-ProfileScreen()
-  ];
+
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> _screens = [
+      HomeScreen(name: "${widget.loginInfo.data?.firstName}  ${widget.loginInfo.data?.lastName}",url: widget.loginInfo.data?.avatar,earnings: widget.loginInfo.data?.earnings.toString(),),
+      const Center(child: Text('Jobs Screen', style: TextStyle(fontSize: 24))),
+      const Center(child: Text('Earnings Screen', style: TextStyle(fontSize: 24))),
+      ProfileScreen(userEmail:widget.loginInfo.data?.email ,userName:"${widget.loginInfo.data?.firstName}  ${widget.loginInfo.data?.lastName}" ,aboutMe: widget.loginInfo.data?.bio ,earnings: widget.loginInfo.data?.earnings.toString(),rating:widget.loginInfo.data?.ratings.toString() ,url:widget.loginInfo.data?.avatar,)
+    ];
     return Scaffold(
       body: _screens[_currentIndex], // Display the selected screen
       bottomNavigationBar: BottomNavigationBar(
@@ -61,14 +75,16 @@ ProfileScreen()
 
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
+  const HomeScreen({super.key,  this.url,  this.name,  this.earnings});
+  final String? url;
+  final String? name;
+  final String? earnings;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: [
-          CardWidget(),
+          CardWidget(url: url,name:name,earnings: earnings,),
           const SizedBox(
             height: 16,
           ),

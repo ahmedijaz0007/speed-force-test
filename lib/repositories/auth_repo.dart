@@ -1,14 +1,20 @@
-
 import '../models/login_model.dart';
-import '../services/auth_service.dart';
+import '../services/mock_service.dart';
 
 class AuthRepository {
-  final AuthApiService _apiService;
+  final MockAuthApiService _apiService;
 
   AuthRepository(this._apiService);
 
   Future<Login> login(String email, String password) async {
-    final rawResponse = await _apiService.login(email, password);
-    return Login.fromJson(rawResponse);
+    try {
+      final rawResponse = await _apiService.login(email, password);
+
+      return Login.fromJson(rawResponse);
+    }
+    catch(e){
+      print("Error In Api: e");
+      rethrow;
+    }
   }
 }

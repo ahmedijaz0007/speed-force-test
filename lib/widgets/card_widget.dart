@@ -65,7 +65,7 @@ class CardWidget extends StatelessWidget{
 
                   Positioned(child: Image.asset("assets/images/png/white_card.png")),
                   const Positioned(top:20,left: 20,child: Text("My Earnings",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w700),)),
-                   Positioned(top:47,left: 20,child: Text(earnings ??"0",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w700,color: AppColors.primaryColor),)),
+                   Positioned(top:47,left: 20,child: Text("\$$earnings" ??"0",style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w700,color: AppColors.primaryColor),)),
 
                   Positioned(top: 0,bottom: 4,right: -10,child: Image.asset("assets/images/png/person.png")),
                   Positioned(left:0,bottom: 0,child: Image.asset("assets/images/png/red.png")),

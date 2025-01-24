@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   dio: ^5.7.0
   intl_phone_field: ^3.2.0
+  mocktail: ^1.0.4
+  shared_preferences: ^2.4.0
 
 dev_dependencies:
   flutter_test:
