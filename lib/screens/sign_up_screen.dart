@@ -16,7 +16,15 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  final TextEditingController controller = TextEditingController();
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneNumberController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
+
+
+
   String dropdownValue = "";
 
   @override
@@ -48,15 +56,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const SizedBox(
                   height: 32,
                 ),
-                CustomTextField(controller: controller, hintText: "First Name"),
+                CustomTextField(controller: firstNameController, hintText: "First Name"),
                 const SizedBox(
                   height: 12,
                 ),
-                CustomTextField(controller: controller, hintText: "Last Name"),
+                CustomTextField(controller: lastNameController, hintText: "Last Name"),
                 const SizedBox(
                   height: 12,
                 ),
-                CustomTextField(controller: controller, hintText: "Email"),
+                CustomTextField(controller: emailController, hintText: "Email",keyboardType: TextInputType.emailAddress,),
                 const SizedBox(
                   height: 12,
                 ),
@@ -94,7 +102,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   style: const TextStyle(
                       color: Color(0xff9E9E9E), fontWeight: FontWeight.w400),
                   textAlignVertical: TextAlignVertical.center,
-                  controller: controller,
+                  controller: phoneNumberController,
                   decoration: const InputDecoration(
                     hintText: 'Phone Number',
                     border: InputBorder.none,
@@ -110,12 +118,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const SizedBox(
                   height: 12,
                 ),
-                CustomTextField(controller: controller, hintText: "Password"),
+                CustomTextField(controller: passwordController, hintText: "Password"),
                 const SizedBox(
                   height: 12,
                 ),
                 CustomTextField(
-                    controller: controller, hintText: "Confirm Password"),
+                    controller: confirmPasswordController, hintText: "Confirm Password"),
                 SizedBox(
                   height: 12,
                 ),

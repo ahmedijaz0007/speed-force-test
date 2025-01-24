@@ -12,7 +12,7 @@ import '../widgets/custom_textfield.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  State<StatefulWidget> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
@@ -21,6 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
   late final AuthRepository _authRepository;
   bool _isLoading = false;
   bool _isPasswordVisible = false;
+
 
   @override
   void initState() {
@@ -42,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
       );
 
       // Handle successful login (e.g., navigate to home screen)
-      print('Login Successful: Token: ${response}');
+      print('Login Successful: Token: $response');
     } catch (e) {
       // Show error dialog for any API or network errors
       if(mounted) {
@@ -73,13 +74,15 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 16,),
               CustomTextField(
+                keyboardType: TextInputType.emailAddress,
                 controller: _emailController,
+                  validator: validateEmail,
                   prefixIcon: const Icon(Icons.email_rounded), hintText: 'Email',
 
               ),
               const SizedBox(height: 16),
               CustomTextField(
-                keyboardType: TextInputType.text,
+                validator: validatePassword,
                 controller: _passwordController,
                 isPasswordVisible: !_isPasswordVisible,//This will obscure text dynamically
                   hintText: 'Password',

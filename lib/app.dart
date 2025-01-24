@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'My Flutter App',
       theme: ThemeData.light(),
-      initialRoute: AppRoutes.home,
+      initialRoute: AppRoutes.initial,
       onGenerateRoute: AppRouter.generateRoute,
     );
   }

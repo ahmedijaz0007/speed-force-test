@@ -18,14 +18,14 @@ class CardWidget extends StatelessWidget{
           bottomLeft: Radius.circular(15),
         ),
       ),
-      height: 300,
+      height: 350,
       width: double.infinity,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 25,right: 15),
+              padding: const EdgeInsets.only(left: 25,right: 15,top: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
