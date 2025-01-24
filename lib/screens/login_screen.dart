@@ -6,6 +6,7 @@ import '../models/login_model.dart';
 import '../repositories/auth_repo.dart';
 import '../services/auth_service.dart';
 import '../utils/app_utils.dart';
+import '../widgets/card_widget.dart';
 import '../widgets/custom_textfield.dart';
 
 
@@ -63,9 +64,10 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(0.0),
           child: Column(
             children: [
+              CardWidget(),
               Image.asset("assets/images/png/logo.png"),
               const SizedBox(height: 16,),
               const Text(
