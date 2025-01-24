@@ -19,7 +19,9 @@ class CustomTextField extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
    return TextField(
-      keyboardType: keyboardType ?? TextInputType.text,
+     style: const TextStyle(color: Color(0xff9E9E9E),fontWeight: FontWeight.w400),
+     textAlignVertical: TextAlignVertical.center,
+     keyboardType: keyboardType ?? TextInputType.text,
       controller: controller,
       obscureText: isPasswordVisible ?? false,//This will obscure text dynamically
       decoration: InputDecoration(

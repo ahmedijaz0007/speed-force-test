@@ -60,14 +60,12 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(0.0),
+          padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
-              CardWidget(),
               Image.asset("assets/images/png/logo.png"),
               const SizedBox(height: 16,),
               const Text(
